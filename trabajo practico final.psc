@@ -71,7 +71,8 @@
 						Si Existe entonces
 							Mostrar "El turno seleccionado ya está ocupado. Por favor, elija otro."
 						SiNo
-							turnos[cantTurno]<-turnoElegido	
+							turnos[cantTurno]<-turnoElegido
+							cantTurno<-cantTurno+1
 							Mostrar "Turno reservado exitosamente."
 						FinSi
 					FinSi
