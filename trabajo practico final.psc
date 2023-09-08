@@ -9,9 +9,9 @@
 		// Para catalogo
 		Dimension Productos[10]
 		Definir cantProductos como Entero
-		Definir equipamentoElegido, tamañoElegido como cadena
+		Definir equipamentoElegido, tamaÃ±oElegido como cadena
 		Dimension Equipamento[5] 
-		Dimension Tamaño[2]
+		Dimension TamaÃ±o[2]
 		
 		
 		Escribir "Bienvenido a la app de Futbito ", "aqui podras reservar turnos para jugar o comprar el mejor equipamento deportivo"
@@ -28,10 +28,10 @@
 				
 				dias[1] <- "Lunes "
 				dias[2] <- "Martes "
-				dias[3] <- "Miércoles "
+				dias[3] <- "MiÃ©rcoles "
 				dias[4] <- "Jueves "
 				dias[5] <- "Viernes "
-				dias[6] <- "Sábado "
+				dias[6] <- "SÃ¡bado "
 				dias[7] <- "Domingo "
 				
 				horas[1] <- "17:00 AM - 18:00 PM"
@@ -44,7 +44,7 @@
 				
 				
 				Repetir
-					Mostrar "Seleccione el día para la reserva:"
+					Mostrar "Seleccione el dÃ­a para la reserva:"
 					Para i <- 1 Hasta 7
 						Mostrar i, ". ", dias[i]
 					Fin Para
@@ -58,7 +58,8 @@
 					
 					turnoElegido<-concatenar(diaElegido,horaElegida) 
 					Si cantTurno=1 entonces 		
-						turnos[cantTurno]<-turnoElegido	
+						turnos[cantTurno]<-turnoElegido
+						cantTurno<-cantTurno+1
 						Mostrar "Turno reservado exitosamente."
 					Sino
 						Existe<- Falso //Es verdadero si encontro un turno duplicado
@@ -68,14 +69,14 @@
 							FinSi
 						FinPara
 						Si Existe entonces
-							Mostrar "El turno seleccionado ya está ocupado. Por favor, elija otro."
+							Mostrar "El turno seleccionado ya estÃ¡ ocupado. Por favor, elija otro."
 						SiNo
 							turnos[cantTurno]<-turnoElegido	
 							Mostrar "Turno reservado exitosamente."
 						FinSi
 					FinSi
-					cantTurno<-cantTurno+1
-					Mostrar "¿Desea reservar otro turno? (1: Sí / 0: No)"
+					
+					Mostrar "Â¿Desea reservar otro turno? (1: SÃ­ / 0: No)"
 					Leer opcionMenu
 				Hasta que opcionMenu = 0	
 				Mostrar "Lista de reservas ingresadas:"
@@ -87,7 +88,7 @@
 			FinSi		
 			//mantener catalogo
 			Si menuPrincipal=2 Entonces
-				cantidadProductos <- 1
+				cantProductos <- 1
 				
 				Equipamento[1] <- "Camisetas Argentina $6000"
 				Equipamento[2] <- "Canilleras $1000"
@@ -95,8 +96,8 @@
 				Equipamento[4] <- "vendas $500"
 				Equipamento[5] <- "Medias deportivas $300"
 				
-				Tamaño[1] <- "Niño"
-				Tamaño[2] <- "Adulto"
+				TamaÃ±o[1] <- "NiÃ±o"
+				TamaÃ±o[2] <- "Adulto"
 				
 				
 				Repetir
@@ -106,15 +107,16 @@
 					Fin Para
 					Leer equipamentoElegido
 					
-					Mostrar "Seleccione el tamaño solicitado:"
+					Mostrar "Seleccione el tamaÃ±o solicitado:"
 					Para i <- 1 Hasta 2
-						Mostrar i, ". ", Tamaño[i]
+						Mostrar i, ". ", TamaÃ±o[i]
 					Fin Para
-					Leer tamañoElegido
+					Leer tamaÃ±oElegido
 					
-					Productoelegido<-concatenar(equipamentoElegido,tamañoElegido) 
+					Productoelegido<-concatenar(equipamentoElegido,tamaÃ±oElegido) 
 					Si cantProductos=1 entonces 		
-						Productos[cantProductos]<-Productoelegido	
+						Productos[cantProductos]<-Productoelegido
+						cantProductos<-cantProductos+1
 						Mostrar "Articulo reservado exitosamente."
 					Sino
 						Existe<- Falso //Es verdadero si encontro un turno duplicado
@@ -130,15 +132,15 @@
 							Mostrar "Articulo reservado exitosamente."
 						FinSi
 					FinSi
-					cantProductos<-cantProductos+1
-					Mostrar "¿Desea reservar otro Producto? (1: Sí / 0: No)"
+					
+					Mostrar "Â¿Desea reservar otro Producto? (1: SÃ­ / 0: No)"
 					Leer opcionMenu
 				Hasta que opcionMenu = 0	
 				Mostrar "Lista de reservas ingresadas:"
 				Para i <- 1 Hasta cantProductos-1 // tengo que restar el que sume de mas
 					xEquipamento<-subcadena(Productos[i],1,1)
-					xTamaño<-subcadena(Productos[i],2,2)
-					Mostrar Equipamento[xEquipamento]," ",Tamaño[xTamaño]//revisar//
+					xTamaÃ±o<-subcadena(Productos[i],2,2)
+					Mostrar Equipamento[xEquipamento]," ",TamaÃ±o[xTamaÃ±o]//revisar//
 				Fin Para		
 			FinSi		
 				
